@@ -1,1 +1,1 @@
-# GRB---Template
+# GRB-Template
