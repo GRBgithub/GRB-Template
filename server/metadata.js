@@ -1,6 +1,3 @@
-g,
-};
-
 const DefaultMetadata = {
   title: "GRB - Template",
   author: "GRB - Régis Grumberg",
