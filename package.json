@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "scripts": {
-    "start": "concurrently  \"webpack --config ./bundler/webpack.server.js\" \"webpack --config ./bundler/webpack.client.prod.js\" \"node ./dist/index.js\"",
+    "start": "node ./dist/index.js",
     "build:server": "webpack  --config ./bundler/webpack.server.js",
     "build": "concurrently  \"webpack --config ./bundler/webpack.server.js\" \"webpack --config ./bundler/webpack.client.prod.js\" ",
     "dev": "concurrently  \"webpack serve --config ./bundler/webpack.client.dev.js\" \"webpack --watch --config ./bundler/webpack.server.js\" \"nodemon ./dist/index.js\" "
