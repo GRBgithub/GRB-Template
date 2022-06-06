@@ -11,7 +11,10 @@
   display: flex;
   justify-content: center;
 }
-
+%column {
+  display: flex;
+  flex-direction: column;
+}
 
 %reset-Btn {
   background: none;

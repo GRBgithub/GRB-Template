@@ -1,15 +1,36 @@
-@import "./base/reset";
+/*---------------------------------------------
+              INIT & HELPERS 
+-----------------------------------------------*/
+@import "./utils/reset";
 @import "./utils/functions";
 @import "./utils/zIndex";
 @import "./utils/mixins";
 @import "./utils/vendors";
 @import "./utils/responsive";
-
-@import "./base/fonts";
-
+/*---------------------------------------------
+            SHARED VARIABLES
+-----------------------------------------------*/
 @import "./variables/easings.scss";
 @import "./variables/colors.scss";
 @import "./variables/separator.scss";
 @import "./variables/title.scss";
 @import "./variables/text.scss";
+
+/*---------------------------------------------
+              BASE STYLES
+-----------------------------------------------*/
+@import "./base/base";
+@import "./base/fonts";
+
+/*---------------------------------------------
+      ONLY SHARED COMPONENT LIKE BUTTON ETC..
+-----------------------------------------------*/
+@import "./components/button.scss";
+
+/*---------------------------------------------
+             ONLY SPECIFIC CODE..
+-----------------------------------------------*/
+@import "./views/home.scss";
+
+
 

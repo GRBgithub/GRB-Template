@@ -1,3 +1,36 @@
+import React from "react";
+import ReactDOMServer from "react-dom/server";
+import Alert from "../src/components/layout/Alert";
+import Background from "../src/components/layout/Background";
+import Cursor from "../src/components/layout/Cursor";
+import Footer from "../src/components/layout/footer";
+import Header from "../src/components/layout/Header";
+import Loader from "../src/components/layout/Loader";
+import Transistor from "../src/components/layout/Transistor";
+const GetPage = ({ meta, html }) => {
+  return `
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+      ${GetMetadata(meta)}
+      <link rel="stylesheet" href="main.css">
+    </head>
+    <body>
+      ${ReactDOMServer.renderToString(<Cursor />)}
+      ${ReactDOMServer.renderToString(<Alert />)}
+      ${ReactDOMServer.renderToString(<Loader />)}
+      ${ReactDOMServer.renderToString(<Transistor />)}
+      ${ReactDOMServer.renderToString(<Header />)}
+      <main id="root">${html}</main>
+      ${ReactDOMServer.renderToString(<Footer />)}
+      ${ReactDOMServer.renderToString(<Background />)}
+    </body>
+    <noscript><div class="iss-w"><div class="iss">Please enable JavaScript to view this website.</div></div></noscript>
+    <script defer src="main.js"></script>
+  </html>
+  `;
+};
+
 const DefaultMetadata = {
   title: "GRB - Template",
   author: "GRB - Régis Grumberg",
@@ -39,4 +72,5 @@ const GetMetadata = (props) => {
       <meta name="twitter:image" content="${meta.preview?.src}" />
     `;
 };
-export default GetMetadata;
+
+export default GetPage;

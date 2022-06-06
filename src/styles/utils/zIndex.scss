@@ -1,16 +1,16 @@
 
 
-$z-indexes: ("Cursor", "Alert", "Loader", "Transistor", "header", "Front", "main", "footer", "Back");
-.Cursor {
+$z-indexes: ("Cursor", "Alert", "Loader", "Transistor", "header",  "main", "footer", "Background");
+#Cursor {
       z-index: z("Cursor");
 }
-.Alert {
+#Alert {
       z-index: z("Alert");
 }
-.Loader {
+#Loader {
       z-index: z("Loader");
 }
-.Transistor {
+#Transistor {
       z-index: z("Transistor");
 }
 header {
@@ -22,9 +22,6 @@ main {
 footer {
       z-index: z("footer");
 }
-.Front {
-      z-index: z("Front");
-}
-.Back {
-      z-index: z("Back");
+#Background{
+      z-index: z("Background");
 }

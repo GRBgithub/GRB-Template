@@ -16,7 +16,7 @@
   user-select: none;
 }
 * {
-  font-family: monospace;
+  @extend %text-xs;
 }
 html {
   font-size: 8px;
@@ -59,6 +59,7 @@ a {
   color: inherit;
   outline: none;
   text-decoration: none;
+  border-bottom: 1px solid blue;
 }
 
 
@@ -75,6 +76,9 @@ button {
 }
 .center {
   @extend %center;
+}
+.column {
+  @extend %column;
 }
 img,
 video {
@@ -93,7 +97,7 @@ video {
 main {
   position: relative;
   width: var(--app-width);
-  height: var(--app-width);
+  height: var(--app-height);
   z-index: z("main");
 }
 .destroy {

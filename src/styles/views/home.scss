@@ -1,0 +1,8 @@
+[data-template="Home"]{
+    h1{
+        @extend %title-xl;
+    }
+    a{
+        color: red;
+    }
+}

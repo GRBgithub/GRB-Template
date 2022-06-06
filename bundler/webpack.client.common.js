@@ -1,22 +1,26 @@
 const path = require("path");
 const webpack = require("webpack");
-
-const { CleanWebpackPlugin } = require("clean-webpack-plugin"); // clean dist before create files
+const BundleAnalyzerPlugin = require("webpack-bundle-analyzer").BundleAnalyzerPlugin;
 const CopyWebpackPlugin = require("copy-webpack-plugin"); // copy files/folder into another
 const MiniCssExtractPlugin = require("mini-css-extract-plugin"); // optimise css extract
 const ImageMinimizerPlugin = require("image-minimizer-webpack-plugin"); // optimise Image
 const TerserPlugin = require("terser-webpack-plugin"); // minimize JS
 
+// path to resolve when import
 const dirSrc = path.join(__dirname, "../src");
 const dirStatic = path.join(__dirname, "../static");
 const dirStyles = path.join(__dirname, "../src/styles");
+const dirUtils = path.join(__dirname, "../src/utils");
+const dirViews = path.join(__dirname, "../src/views");
+const dirComponents = path.join(__dirname, "../src/components");
+const dirApp = path.join(__dirname, "../src/app");
 const dirNode = "node_modules";
 
 const IS_DEVELOPMENT = process.env.NODE_ENV === "dev";
 
 module.exports = {
-  mode: "developpement",
-  entry: [path.join(dirSrc, "index.js"), path.join(dirStyles, "styles.scss")],
+  mode: "development",
+  entry: [path.join(dirSrc, "app", "APP.js"), path.join(dirStyles, "styles.scss")],
   output: {
     path: path.resolve(__dirname, "../dist/public"),
     filename: "[name].js",
@@ -24,13 +28,13 @@ module.exports = {
   performance: {
     hints: false,
   },
+
   resolve: {
     // find element in import from folder like modules etc..
-    modules: [dirSrc, dirStatic, dirStyles, dirNode],
+    modules: [dirSrc, dirStatic, dirStyles, dirNode, dirApp, dirComponents, dirViews, dirUtils],
   },
 
   plugins: [
-    new CleanWebpackPlugin(),
     // define global variables like JQUERY => $
     new webpack.DefinePlugin({
       IS_DEVELOPMENT,
@@ -44,6 +48,7 @@ module.exports = {
     new MiniCssExtractPlugin({
       filename: "[name].css",
     }),
+    new BundleAnalyzerPlugin(),
   ],
 
   module: {

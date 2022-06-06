@@ -2,8 +2,9 @@
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
-      "@app/*": ["src/app/*"],
+      "@app/*": ["src/Controller/*"],
       "@ui/*": ["src/ui/*"],
+   
       "@styles/*": ["src/styles/*"],
       "@static/*": ["src/static/*"]
     }
