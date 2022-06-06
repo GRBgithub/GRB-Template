@@ -3,7 +3,7 @@ import ReactDOMServer from "react-dom/server";
 import Alert from "../src/components/layout/Alert";
 import Background from "../src/components/layout/Background";
 import Cursor from "../src/components/layout/Cursor";
-import Footer from "../src/components/layout/footer";
+import Footer from "../src/components/layout/Footer";
 import Header from "../src/components/layout/Header";
 import Loader from "../src/components/layout/Loader";
 import Transistor from "../src/components/layout/Transistor";
