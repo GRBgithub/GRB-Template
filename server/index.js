@@ -9,7 +9,7 @@ import "isomorphic-fetch";
     GO TO ROUTES FILE TO SETUP EVERY ROUTES AND HERE META DATA
 -----------------------------------------------------------------*/
 
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 const app = express();
 const publicDir = path.resolve(__dirname, "public");
 const mediasDir = path.join(publicDir, "static", "medias");
