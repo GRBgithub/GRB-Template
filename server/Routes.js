@@ -32,6 +32,9 @@ const Routes = [
 /*-----------------------------------------------------------------------------
     DO NOT TOUCH PROMISES TO RENDER PLAIN HTML FROM REACT AS TEMPLATE ENGINE
 -------------------------------------------------------------------------------*/
+const hikkary = () => {
+  return "<div>404</div>";
+};
 const GetRoutes = (attribute) => {
   let Route = {};
   Routes.forEach((element) => {
@@ -39,9 +42,17 @@ const GetRoutes = (attribute) => {
       Route = element;
     }
   });
-  const promises = Route.GetProps();
-  return Promise.all([promises]).then(([data]) => {
-    return ReactDOMServer.renderToString(<Route.Component props={data} />);
-  });
+  if (Route.GetProps) {
+    const promises = Route.GetProps();
+    return Promise.all([promises]).then(([data]) => {
+      return ReactDOMServer.renderToString(<Route.Component props={data} />);
+    });
+  } else {
+    const promises = hikkary();
+    return Promise.all([promises]).then(([data]) => {
+      return data;
+    });
+  }
 };
+
 export default GetRoutes;
